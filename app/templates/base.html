@@ -2,12 +2,53 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flask Application</title>
+    <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom Theme Styles -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+        }
+        .navbar {
+            background-color: #367c2b; /* John Deere Green */
+        }
+        .navbar-brand, .nav-link {
+            color: #f4d03f !important; /* John Deere Yellow */
+        }
+        .navbar-brand:hover, .nav-link:hover {
+            color: #d4ac0d !important; /* Slightly darker yellow for hover effect */
+        }
+        footer {
+            background-color: #367c2b;
+            color: #ffffff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .btn-primary {
+            background-color: #367c2b;
+            border-color: #367c2b;
+        }
+        .btn-primary:hover {
+            background-color: #2c6523;
+            border-color: #2c6523;
+        }
+        h1, h2, h3 {
+            color: #367c2b;
+        }
+        .container {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Flask Application</a>
+<nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="#">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/02/John_Deere_logo.svg" alt="John Deere Logo" height="30">
+        Flask Application
+    </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -35,6 +76,10 @@
 <div class="container">
     {% block content %}{% endblock %}
 </div>
+
+<footer>
+    <p>&copy; 2024 Flask Application | Powered by John Deere Inspiration</p>
+</footer>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
