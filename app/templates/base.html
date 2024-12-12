@@ -3,54 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SE Tractor's</title>
+    <title>SE Tractor</title>
     <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom Theme Styles -->
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f9f9f9;
+            background: linear-gradient(to bottom, #e9f5e5, #f4f4f4); /* Gradient from light green to neutral */
+            color: #333; /* Neutral text color for readability */
         }
+
         .navbar {
             background-color: #367c2b; /* John Deere Green */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
         }
-        .navbar-brand, .nav-link {
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
             color: #f4d03f !important; /* John Deere Yellow */
         }
-        .navbar-brand:hover, .nav-link:hover {
-            color: #d4ac0d !important; /* Slightly darker yellow for hover effect */
+
+        .nav-link {
+            font-size: 1rem;
+            color: #ffffff !important; /* White links for contrast */
         }
-        footer {
+
+        .nav-link:hover {
+            color: #d4ac0d !important; /* Slightly darker yellow for hover effect */
+            text-decoration: underline;
+        }
+
+        .footer {
             background-color: #367c2b;
             color: #ffffff;
-            padding: 10px 0;
+            padding: 15px 0;
             text-align: center;
+            font-size: 0.9rem;
         }
+
         .btn-primary {
             background-color: #367c2b;
             border-color: #367c2b;
+            font-weight: bold;
         }
+
         .btn-primary:hover {
             background-color: #2c6523;
             border-color: #2c6523;
         }
+
         h1, h2, h3 {
-            color: #367c2b;
+            color: #367c2b; /* Green accents for headings */
         }
+
         .container {
-            margin-top: 20px;
+            margin-top: 30px;
+        }
+
+        .navbar-toggler {
+            border: none; /* Clean up the toggle button appearance */
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23f4d03f' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255, 255, 255, 0.7)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'%3E%3C/path%3E%3C/svg%3E");
+        }
+
+        /* Optional: Add a border to the main container for a polished look */
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg">
-    <a class="navbar-brand" href="#">SE Tractor's</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" href="#">SE Tractor</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav ms-auto">
             <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('index') }}">Home</a>
             </li>
@@ -74,12 +110,11 @@
     {% block content %}{% endblock %}
 </div>
 
-<footer>
+<footer class="footer">
     <p>&copy; 2024 SE Tractor's | Powering Your Land with the Best Tractors</p>
 </footer>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
