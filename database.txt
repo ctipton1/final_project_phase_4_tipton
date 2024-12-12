@@ -1,25 +1,30 @@
 Table customers {
-  customer_id int [pk, increment]
-  name varchar(150)
-  email varchar(150)
-  phone varchar(15)
+    customer_id int [pk, increment] // Primary Key with Auto Increment
+    name varchar(150)
+    email varchar(150)
+    phone varchar(15)
+}
+
+Table maintenance {
+    maintenance_id int [pk, increment] // Primary Key with Auto Increment
+    tractor_id int [ref: > tractors.tractor_id] // Foreign Key to tractors
+    description varchar(255)
+    date date
+    status varchar(50)
 }
 
 Table rental_records {
-  rental_id int [pk, increment]
-  tractor_id int
-  customer_id int
-  start_date date
-  end_date date
+    rental_id int [pk, increment] // Primary Key with Auto Increment
+    tractor_id int [ref: > tractors.tractor_id] // Foreign Key to tractors
+    customer_id int [ref: > customers.customer_id] // Foreign Key to customers
+    start_date date
+    end_date date
 }
 
 Table tractors {
-  tractor_id int [pk, increment]
-  model varchar(100)
-  brand varchar(100)
-  type varchar(100)
-  availability tinyint(1)
+    tractor_id int [pk, increment] // Primary Key with Auto Increment
+    model varchar(100)
+    brand varchar(100)
+    type varchar(100)
+    availability tinyint(1) // 1 for available, 0 for not available
 }
-
-Ref: rental_records.tractor_id > tractors.tractor_id
-Ref: rental_records.customer_id > customers.customer_id

@@ -6,6 +6,7 @@ from .db_connect import close_db, get_db
 from .blueprints.customers import customers
 from .blueprints.rental_records import rental_records
 from .blueprints.tractors import tractors
+from .blueprints.tractor_maintenance import tractor_maintenance  # Import the maintenance blueprint
 
 app = create_app()
 app.secret_key = 'your-secret'  # Replace with an environment variable
@@ -14,6 +15,7 @@ app.secret_key = 'your-secret'  # Replace with an environment variable
 app.register_blueprint(customers, url_prefix='/customers')
 app.register_blueprint(rental_records, url_prefix='/rental_records')
 app.register_blueprint(tractors, url_prefix='/tractors')
+app.register_blueprint(tractor_maintenance, url_prefix='/maintenance')  # Register maintenance blueprint
 
 from . import routes
 

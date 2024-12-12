@@ -23,12 +23,16 @@
             font-size: 1.5rem;
             font-weight: bold;
             color: #f4d03f !important; /* John Deere Yellow */
-            padding-left: 20px; /* Add padding to slide to the right */
+        }
+
+        .navbar-nav {
+            margin: 0 auto; /* Center the navigation menu */
         }
 
         .nav-link {
             font-size: 1rem;
             color: #ffffff !important; /* White links for contrast */
+            margin: 0 10px; /* Spacing between links */
         }
 
         .nav-link:hover {
@@ -42,6 +46,7 @@
             padding: 15px 0;
             text-align: center;
             font-size: 0.9rem;
+            margin-top: 20px;
         }
 
         .btn-primary {
@@ -82,28 +87,33 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg">
-    <a class="navbar-brand" href="#">SE Tractor</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('index') }}">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('about') }}">About</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('customers.manage_customers') }}">Customers</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('rental_records.manage_rentals') }}">Rental Records</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('tractors.manage_tractors') }}">Tractors</a>
-            </li>
-        </ul>
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">SE Tractor</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('about') }}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('customers.manage_customers') }}">Customers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('rental_records.manage_rentals') }}">Rental Records</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('tractors.manage_tractors') }}">Tractors</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('tractor_maintenance.manage_maintenance') }}">Maintenance</a>
+                </li>
+            </ul>
+        </div>
     </div>
 </nav>
 
