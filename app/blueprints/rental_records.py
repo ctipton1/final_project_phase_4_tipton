@@ -21,9 +21,19 @@ def manage_rentals():
         flash('Rental record added successfully!', 'success')
         return redirect(url_for('rental_records.manage_rentals'))
 
+    # Fetch rental records
     cursor.execute('SELECT * FROM rental_records')
     all_rentals = cursor.fetchall()
-    return render_template('rental_records.html', all_rentals=all_rentals)
+
+    # Fetch customers and tractors for dropdowns
+    cursor.execute('SELECT customer_id, name FROM customers')
+    customers = cursor.fetchall()
+
+    cursor.execute('SELECT tractor_id, model, brand FROM tractors WHERE availability = 1')  # Only fetch available tractors
+    tractors = cursor.fetchall()
+
+    return render_template('rental_records.html', all_rentals=all_rentals, customers=customers, tractors=tractors)
+
 
 @rental_records.route('/update_rental/<int:rental_id>', methods=['GET', 'POST'])
 def update_rental(rental_id):

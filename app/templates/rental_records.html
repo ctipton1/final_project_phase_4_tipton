@@ -47,12 +47,24 @@
                         <form method="post" action="{{ url_for('rental_records.update_rental', rental_id=rental.rental_id) }}">
                             <div class="modal-body">
                                 <div class="mb-3">
-                                    <label class="form-label">Tractor ID</label>
-                                    <input type="number" class="form-control" name="tractor_id" value="{{ rental.tractor_id }}" required>
+                                    <label class="form-label">Customer</label>
+                                    <select class="form-select" name="customer_id" required>
+                                        {% for customer in customers %}
+                                        <option value="{{ customer.customer_id }}" {% if customer.customer_id == rental.customer_id %}selected{% endif %}>
+                                            {{ customer.name }}
+                                        </option>
+                                        {% endfor %}
+                                    </select>
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Customer ID</label>
-                                    <input type="number" class="form-control" name="customer_id" value="{{ rental.customer_id }}" required>
+                                    <label class="form-label">Tractor</label>
+                                    <select class="form-select" name="tractor_id" required>
+                                        {% for tractor in tractors %}
+                                        <option value="{{ tractor.tractor_id }}" {% if tractor.tractor_id == rental.tractor_id %}selected{% endif %}>
+                                            {{ tractor.model }} ({{ tractor.brand }})
+                                        </option>
+                                        {% endfor %}
+                                    </select>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Start Date</label>
@@ -108,12 +120,22 @@
             <form method="post" action="{{ url_for('rental_records.manage_rentals') }}">
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label class="form-label">Tractor ID</label>
-                        <input type="number" class="form-control" name="tractor_id" required>
+                        <label class="form-label">Customer</label>
+                        <select class="form-select" name="customer_id" required>
+                            <option value="" disabled selected>Select Customer</option>
+                            {% for customer in customers %}
+                            <option value="{{ customer.customer_id }}">{{ customer.name }}</option>
+                            {% endfor %}
+                        </select>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Customer ID</label>
-                        <input type="number" class="form-control" name="customer_id" required>
+                        <label class="form-label">Tractor</label>
+                        <select class="form-select" name="tractor_id" required>
+                            <option value="" disabled selected>Select Tractor</option>
+                            {% for tractor in tractors %}
+                            <option value="{{ tractor.tractor_id }}">{{ tractor.model }} ({{ tractor.brand }})</option>
+                            {% endfor %}
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Start Date</label>
